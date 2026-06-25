@@ -1,12 +1,14 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import errorMiddleware from "./src/middleware/error.middleware.js";
 import connectDB from "./src/dbconfig/mongoDb.js";
 import userRoutes from "./src/routes/user.route.js";
 import tripRouter from "./src/routes/trip.route.js";
 
 const app = express();
+app.use(cookieParser());
 
 app.use(
   cors({

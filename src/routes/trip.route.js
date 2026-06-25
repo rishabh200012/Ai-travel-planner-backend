@@ -17,8 +17,8 @@ import { authMiddleware } from "../middleware/auth.middleware.js";
 const tripRouter = Router();
 
 tripRouter.post("/create-trip", authMiddleware, createTrip);
-tripRouter.post("/get-all-trip", authMiddleware, getAllTrips);
-tripRouter.post("/trip/:id", authMiddleware, getSingleTrip);
+tripRouter.get("/get-all-trip", authMiddleware, getAllTrips);
+tripRouter.get("/trip/:id", authMiddleware, getSingleTrip);
 tripRouter.post("/trip-update/:id", authMiddleware, updateTrip);
 tripRouter.post("/trip-delete/:id", authMiddleware, deleteTrip);
 tripRouter.post("/trip/:id/generate", authMiddleware, generateItinerary);

@@ -227,8 +227,8 @@ export const logout = async (req, res, next) => {
     return res
       .clearCookie("accessToken", {
         httpOnly: true,
-        secure: true,
-        sameSite: "none",
+        // secure: true,
+        // sameSite: "none",
       })
       .status(200)
       .json({
