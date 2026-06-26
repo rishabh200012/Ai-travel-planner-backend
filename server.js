@@ -10,9 +10,14 @@ import tripRouter from "./src/routes/trip.route.js";
 const app = express();
 app.use(cookieParser());
 
+const allowedOrigin = [
+  "http://localhost:3000",
+  "https://ai-travel-planner-frontend-production.up.railway.app/",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigin,
     credentials: true,
   }),
 );
