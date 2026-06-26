@@ -98,8 +98,8 @@ export const otpVerification = async (req, res, next) => {
       .status(200)
       .cookie("accessToken", token, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
         maxAge: 60 * 60 * 1000,
       })
       .json({
@@ -147,8 +147,8 @@ export const userLogin = async (req, res, next) => {
       .status(200)
       .cookie("accessToken", token, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
         maxAge: 60 * 60 * 1000,
       })
       .json({
@@ -227,8 +227,8 @@ export const logout = async (req, res, next) => {
     return res
       .clearCookie("accessToken", {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
       })
       .status(200)
       .json({
