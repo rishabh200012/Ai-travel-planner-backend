@@ -20,7 +20,7 @@ tripRouter.post("/create-trip", authMiddleware, createTrip);
 tripRouter.get("/get-all-trip", authMiddleware, getAllTrips);
 tripRouter.get("/trip/:id", authMiddleware, getSingleTrip);
 tripRouter.post("/trip-update/:id", authMiddleware, updateTrip);
-tripRouter.post("/trip-delete/:id", authMiddleware, deleteTrip);
+tripRouter.delete("/trip-delete/:id", authMiddleware, deleteTrip);
 tripRouter.post("/trip/:id/generate", authMiddleware, generateItinerary);
 tripRouter.post("/trip/:id/regenerate-day", authMiddleware, regenerateDay);
 tripRouter.patch("/trip/:id/activity/add", authMiddleware, addActivity);
