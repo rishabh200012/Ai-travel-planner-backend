@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 const allowedOrigin = [
   "http://localhost:3000",
-  "https://ai-travel-planner-frontend-production.up.railway.app/",
+  "https://ai-travel-planner-frontend-production.up.railway.app",
 ];
 
 app.use(
