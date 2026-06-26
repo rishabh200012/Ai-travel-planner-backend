@@ -20,6 +20,13 @@ Budget: ${budgetType}
 Interests: ${interests.join(", ")}
 
 Return ONLY valid JSON.
+IMPORTANT RULES:
+
+1. activities MUST be an array of STRINGS.
+2. NEVER return objects inside activities.
+3. NEVER include keys such as time, description, title or notes.
+4. Every activity must be a plain string.
+5. If you return an object instead of a string, the response is INVALID.
 
 Format:
 
