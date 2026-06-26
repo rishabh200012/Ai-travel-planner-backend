@@ -259,6 +259,8 @@ export const removeActivity = async (req, res, next) => {
 
     dayData.activities.splice(activityIndex, 1);
 
+    trip.markModified("itinerary");
+
     await trip.save();
 
     return res.status(200).json({
@@ -303,6 +305,8 @@ export const addActivity = async (req, res, next) => {
     }
 
     dayData.activities.push(activity);
+
+    trip.markModified("itinerary");
 
     await trip.save();
 
