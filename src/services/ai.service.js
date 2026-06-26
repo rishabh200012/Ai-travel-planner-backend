@@ -27,7 +27,11 @@ Format:
   "itinerary":[
     {
       "day":1,
-      "activities":[]
+      "activities": [
+    "activity 1",
+    "activity 2",
+    "activity 3"
+  ]
     }
   ],
   "estimatedBudget":{
@@ -37,7 +41,14 @@ Format:
     "activities":0,
     "total":0
   },
-  "hotels":[]
+  "hotels": [
+    {
+      "name": "Hotel Name",
+      "location": "City, Area",
+      "price_range": "₹3000 - ₹5000 per night",
+      "description": "Short description of the hotel."
+    }
+  ]
 }
 `;
 
