@@ -304,7 +304,10 @@ export const addActivity = async (req, res, next) => {
       });
     }
 
-    dayData.activities.push(activity);
+    dayData.activities.push({
+      time: "Custom",
+      description: activity,
+    });
 
     trip.markModified("itinerary");
 
