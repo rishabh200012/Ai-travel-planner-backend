@@ -20,26 +20,28 @@ export const generateJWT = (id) => {
 };
 
 export const sendOtpOnMail = async (otp, userMail) => {
-  // const transpoter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   auth: {
-  //     user: process.env.MAIL_ADD,
-  //     pass: process.env.MAIL_PASS,
-  //   },
-  // });
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.MAIL_ADD,
-      pass: process.env.MAIL_PASS,
-    },
-  });
-  await transporter.sendMail({
-    from: process.env.MAIL_ADD,
-    to: userMail,
-    subject: "OTP verification",
-    text: `Your otp for email verification is ${otp}. This otp will expire in 10 minutes`,
-  });
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_ADD,
+        pass: process.env.MAIL_PASS,
+      },
+    });
+
+    await transporter.verify();
+    console.log("SMTP Connected");
+
+    await transporter.sendMail({
+      from: process.env.MAIL_ADD,
+      to: userMail,
+      subject: "OTP verification",
+      text: `Your otp is ${otp}`,
+    });
+
+    console.log("Mail Sent");
+  } catch (err) {
+    console.error("SMTP ERROR:", err);
+    throw err;
+  }
 };
